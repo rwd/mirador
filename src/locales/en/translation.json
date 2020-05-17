@@ -59,6 +59,8 @@
     "importWorkspace": "Import workspace",
     "importWorkspaceHint": "Paste a Mirador 3 configuration to be imported",
     "item": "Item: {{label}}",
+    "jsError": "{{ name }}: {{ message }}",
+    "jsStack": "{{ stack }}",
     "language": "Language",
     "layer_hide": "Hide layer",
     "layer_move": "Move layer",

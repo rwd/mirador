@@ -7,6 +7,7 @@ import ns from '../config/css-ns';
 import WindowTopBar from '../containers/WindowTopBar';
 import PrimaryWindow from '../containers/PrimaryWindow';
 import CompanionArea from '../containers/CompanionArea';
+import ErrorWindow from '../containers/ErrorWindow';
 import WindowAuthenticationControl from '../containers/WindowAuthenticationControl';
 import { PluginHook } from './PluginHook';
 
@@ -25,7 +26,7 @@ export class Window extends Component {
   /** */
   static getDerivedStateFromError(error) {
     // Update state so the next render will show the fallback UI.
-    return { hasError: true };
+    return { error, hasError: true };
   }
 
   /** */
@@ -72,10 +73,10 @@ export class Window extends Component {
       focusWindow, label, manifest, maximized, sideBarOpen, view, windowId, classes, t,
     } = this.props;
 
-    const { hasError } = this.state;
+    const { error, hasError } = this.state;
 
     if (hasError) {
-      return <></>;
+      return <ErrorWindow error={error} windowId={windowId} />;
     }
 
     return (
